@@ -1,0 +1,93 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    namespace 'com.mamon.pixe'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.mamon.pixe"
+        minSdk 19
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+
+
+//        // Enable Coroutines and Flow APIs
+//        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+//        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
+
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+
+    // Allow references to generated code
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+
+    implementation Deps.core
+    implementation Deps.appCompact
+    implementation Deps.material
+    implementation Deps.constraintLayout
+    implementation Deps.legacySupport
+    implementation Deps.lifeData
+    implementation Deps.viewModel
+
+    // testing
+    testImplementation TestImplementation.junit
+    androidTestImplementation AndroidTest.junit
+    androidTestImplementation AndroidTest.espressoCore
+
+    // navigation
+    implementation Navigation.fragment
+    implementation Navigation.ui
+
+    // okhttp3
+    implementation Okhttp3.okhttp3
+    implementation Okhttp3.loggingInterceptor
+
+    // retrofit2
+    implementation Retrofit2.retrofit
+    implementation Retrofit2.converterGson
+    implementation Retrofit2.converterScales
+
+    // paging 3
+    implementation Paging3.paging
+
+    // dagger hilt
+    implementation DaggerHilt.daggerHilt
+    kapt DaggerHilt.daggerCompiler
+
+    // glide
+    implementation Glide.glide
+    annotationProcessor Glide.glideCompiler
+
+
+}

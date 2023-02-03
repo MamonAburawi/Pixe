@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/photos">
+
+    <fragment
+        android:id="@+id/photos"
+        android:name="com.mamon.pixe.screens.photos.Photos"
+        android:label="Photos"
+        tools:layout="@layout/photos"/>
+    <fragment
+        android:id="@+id/videos"
+        android:name="com.mamon.pixe.screens.videos.Videos"
+        android:label="Videos"
+        tools:layout="@layout/videos"/>
+    <fragment
+        android:id="@+id/collections"
+        android:name="com.mamon.pixe.screens.collections.Collections"
+        android:label="Collections"
+        tools:layout="@layout/collections"/>
+</navigation>
