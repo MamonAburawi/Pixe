@@ -1,4 +1,4 @@
-package com.mamon.pixe.data
+package com.info.pixels.data
 
 data class Photo(
     val alt: String,

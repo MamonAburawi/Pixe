@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pixe</string>
+    <string name="info_app_bar_photo">Search Photos</string>
+    <string name="info_app_bar_videos">Search Videos</string>
 </resources>

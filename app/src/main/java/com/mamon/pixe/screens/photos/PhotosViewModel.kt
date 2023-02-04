@@ -6,11 +6,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import com.info.pixels.data.Curated
+import com.info.pixels.data.Photo
 import com.mamon.pixe.utils.PAGE_SIZE
 import com.mamon.pixe.utils.PREFETCH_DIST
-import com.mamon.pixe.PhotoDataSource
-import com.mamon.pixe.data.Curated
-import com.mamon.pixe.data.Photo
 import com.mamon.pixe.repository.PhotoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -61,7 +60,7 @@ class PhotosViewModel @Inject constructor(
     @ExperimentalPagingApi
     fun getPhotos()  = Pager(
         config = PagingConfig(100,enablePlaceholders = false),
-        pagingSourceFactory = { PhotoDataSource(repository.pixelApi)}
+        pagingSourceFactory = { PhotoDataSource(repository.pixelApi) }
     ).flow.cachedIn(viewModelScope)
 
 

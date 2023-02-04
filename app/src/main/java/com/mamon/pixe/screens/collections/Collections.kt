@@ -18,7 +18,6 @@ class Collections : Fragment() {
 
 
 
-
         return binding.root
     }
 

@@ -1,8 +1,10 @@
-package com.mamon.pixe
+package com.mamon.pixe.screens.photos
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.mamon.pixe.data.Photo
+import com.info.pixels.PixelApi
+
+import com.info.pixels.data.Photo
 import com.mamon.pixe.utils.STARTING_PAGE_INDEX
 
 
@@ -18,8 +20,6 @@ class PhotoDataSource(
             val response = apiService.getPhotos(per_page = 10, page = currentPage)
             val responseData = mutableListOf<Photo>()
             val data = response.body()?.photos ?: emptyList()
-
-
 
             responseData.addAll(data)
 

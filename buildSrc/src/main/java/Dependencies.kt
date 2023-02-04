@@ -33,7 +33,7 @@ object TestImplementation{
     const val junit = "junit:junit:${Versions.junit}"
 }
 
-object AndroidTest{
+object AndroidTestImplementation{
     const val junit = "androidx.test.ext:junit:${Versions.AndroidTestJunit}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 }

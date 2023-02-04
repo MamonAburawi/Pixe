@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mamon.pixe.data.Photo
+import com.info.pixels.data.Photo
 import com.mamon.pixe.databinding.ItemPhotoBinding
 
 

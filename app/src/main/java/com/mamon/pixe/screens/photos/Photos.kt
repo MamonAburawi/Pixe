@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.mamon.pixe.data.Photo
+import com.info.pixels.data.Photo
+import com.mamon.pixe.R
 import com.mamon.pixe.databinding.PhotosBinding
+import com.mamon.pixe.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -27,7 +30,7 @@ class Photos : Fragment() {
         binding = PhotosBinding.inflate(inflater,container,false)
 
 
-        setAdapter()
+        setViews()
 
 
         lifecycleScope.launchWhenStarted {
@@ -39,6 +42,28 @@ class Photos : Fragment() {
 
 
         return binding.root
+    }
+
+    private fun setViews() {
+        binding.apply {
+
+            setAdapter()
+
+            appBar.searchField.hint = getString(R.string.info_app_bar_photo)
+
+            /** search app Bar **/
+            appBar.searchField.setOnEditorActionListener { textView, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    val query = textView.text.trim().toString()
+                    hideKeyboard()
+                    true
+                } else { false }
+            }
+
+
+        }
+
+
     }
 
 
