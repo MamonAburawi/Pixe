@@ -14,10 +14,19 @@
         android:id="@+id/videos"
         android:name="com.mamon.pixe.screens.videos.Videos"
         android:label="Videos"
-        tools:layout="@layout/videos"/>
+        tools:layout="@layout/videos">
+        <action
+            android:id="@+id/action_videos_to_videoViewer"
+            app:destination="@id/videoViewer" />
+    </fragment>
     <fragment
         android:id="@+id/collections"
         android:name="com.mamon.pixe.screens.collections.Collections"
         android:label="Collections"
         tools:layout="@layout/collections"/>
+    <fragment
+        android:id="@+id/videoViewer"
+        android:name="com.mamon.pixe.screens.video_viewer.VideoViewer"
+        android:label="VideoViewer"
+        tools:layout="@layout/video_viewer"/>
 </navigation>

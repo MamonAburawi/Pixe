@@ -90,5 +90,8 @@ dependencies {
     implementation Glide.glide
     annotationProcessor Glide.glideCompiler
 
+    // exoPlayer
+    implementation ExoPlayer.exoPlayer
+
 
 }

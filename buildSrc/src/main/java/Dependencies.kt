@@ -17,6 +17,7 @@ object Versions{
     const val daggerHilt = "2.42"
     const val glide = "4.14.2"
     const val work = "2.7.1"
+    const val exoPlayer = "2.18.2"
 }
 
 object Deps{
@@ -76,5 +77,8 @@ object WorkManager{
     const val work  = "androidx.work:work-runtime:${Versions.work}"
 }
 
+object ExoPlayer {
+    const val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
+}
 
 

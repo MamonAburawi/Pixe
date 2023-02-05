@@ -7,14 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
 import com.info.pixels.data.photo.Photo
 import com.info.pixels.data.video.Video
 import com.mamon.pixe.R
 import com.mamon.pixe.databinding.VideosBinding
 import com.mamon.pixe.screens.photos.PhotoAdapter
 import com.mamon.pixe.screens.photos.PhotoViewModel
+import com.mamon.pixe.utils.Constants
 import com.mamon.pixe.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -85,16 +90,15 @@ class Videos : Fragment() {
 
 
 
-
     private fun setAdapter(){
         videoAdapter.listener = object : VideoAdapter.VideoListener{
-            override fun onClick(data: Video) {
-                Toast.makeText(requireContext(),data.url, Toast.LENGTH_SHORT).show()
+            override fun onClick(video: Video) {
+                val data = bundleOf(Constants.KEY_VIDEO_URL to video.video_files.first().link)
+                findNavController().navigate(R.id.action_videos_to_videoViewer,data)
             }
         }
         binding.rvVideos.adapter = videoAdapter
     }
-
 
 
 
