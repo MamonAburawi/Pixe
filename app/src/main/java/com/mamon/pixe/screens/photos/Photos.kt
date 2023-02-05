@@ -9,7 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import com.info.pixels.data.Photo
+import com.info.pixels.data.photo.Photo
 import com.mamon.pixe.R
 import com.mamon.pixe.databinding.PhotosBinding
 import com.mamon.pixe.utils.hideKeyboard
@@ -93,8 +93,9 @@ class Photos : Fragment() {
     }
 
 
-    fun setAdapter(){
-        photoAdapter.listener = object : PhotoAdapter.PhotoListener{
+
+    private fun setAdapter(){
+        photoAdapter.listener = object : PhotoAdapter.PhotoListener {
             override fun onClick(data: Photo) {
                 Toast.makeText(requireContext(),data.url,Toast.LENGTH_SHORT).show()
             }

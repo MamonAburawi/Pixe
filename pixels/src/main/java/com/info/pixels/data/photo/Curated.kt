@@ -1,4 +1,4 @@
-package com.info.pixels.data
+package com.info.pixels.data.photo
 
 data class Curated(
     val next_page: String,

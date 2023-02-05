@@ -2,22 +2,16 @@ package com.mamon.pixe.screens.photos
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingData
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.info.pixels.data.Photo
+import com.info.pixels.data.photo.Photo
 import com.mamon.pixe.databinding.ItemPhotoBinding
-import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collectLatest
 
 
 class PhotoAdapter: PagingDataAdapter<Photo, PhotoAdapter.NoteViewHolder>(NoteDiffUtil()) {
 
     lateinit var listener: PhotoListener
-
-
-
 
 
     inner class NoteViewHolder(private val binding: ItemPhotoBinding): RecyclerView.ViewHolder(binding.root){

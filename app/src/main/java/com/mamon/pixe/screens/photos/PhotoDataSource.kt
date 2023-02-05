@@ -3,7 +3,7 @@ package com.mamon.pixe.screens.photos
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.info.pixels.PixelApi
-import com.info.pixels.data.Photo
+import com.info.pixels.data.photo.Photo
 import com.mamon.pixe.utils.PAGE_SIZE
 import com.mamon.pixe.utils.STARTING_PAGE_INDEX
 
@@ -24,7 +24,7 @@ class PhotoDataSource (
                       response.body()?.photos ?: emptyList()
                 }
                 else -> { // user searching
-                    val response = apiService.search(query = query, per_page = PAGE_SIZE)
+                    val response = apiService.searchPhoto(query = query, per_page = PAGE_SIZE)
                     response.body()?.photos ?: emptyList()
                 }
             }

@@ -7,7 +7,7 @@
 
         <variable
             name="photo"
-            type="com.info.pixels.data.Photo" />
+            type="com.info.pixels.data.photo.Photo" />
 
     </data>
 

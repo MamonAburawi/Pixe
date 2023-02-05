@@ -1,4 +1,4 @@
-package com.info.pixels.data
+package com.info.pixels.data.photo
 
 data class Search(
     val total_results: Int,

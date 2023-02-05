@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import com.info.pixels.data.Photo
+import com.info.pixels.data.photo.Photo
 import com.mamon.pixe.utils.PAGE_SIZE
 import com.mamon.pixe.utils.PREFETCH_DIST
 import com.mamon.pixe.repository.PhotoRepository

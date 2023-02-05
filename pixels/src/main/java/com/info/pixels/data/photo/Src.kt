@@ -1,4 +1,4 @@
-package com.info.pixels.data
+package com.info.pixels.data.photo
 
 data class Src(
     val landscape: String,
