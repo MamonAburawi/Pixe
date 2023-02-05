@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.collectLatest
 class Photos : Fragment() {
 
     private lateinit var binding: PhotosBinding
-    private val viewModel by activityViewModels<PhotosViewModel>()
+    private val viewModel by activityViewModels<PhotoViewModel>()
     private val photoAdapter by lazy { PhotoAdapter() }
 
 
@@ -31,18 +31,37 @@ class Photos : Fragment() {
 
 
         setViews()
-
-
-        lifecycleScope.launchWhenStarted {
-            viewModel.data.collectLatest { data ->
-                photoAdapter.submitData(data)
-            }
-        }
+        setObserves()
 
 
 
         return binding.root
     }
+
+
+
+
+    private fun setObserves() {
+        viewModel.apply {
+
+
+
+            // photos
+            photos.observe(viewLifecycleOwner){ photos ->
+                lifecycleScope.launchWhenStarted {
+                    photos.collectLatest { data ->
+                        if (data != null) {
+                            photoAdapter.submitData(data)
+                        }
+                    }
+                }
+            }
+
+
+
+        }
+    }
+
 
     private fun setViews() {
         binding.apply {
@@ -55,6 +74,13 @@ class Photos : Fragment() {
             appBar.searchField.setOnEditorActionListener { textView, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     val query = textView.text.trim().toString()
+
+                    if (query.isNotEmpty()){
+                        viewModel.search(query)
+                    }else{
+                        viewModel.getData()
+                    }
+
                     hideKeyboard()
                     true
                 } else { false }

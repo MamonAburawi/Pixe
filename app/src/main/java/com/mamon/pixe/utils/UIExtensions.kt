@@ -5,6 +5,7 @@ import android.content.Context
 import android.opengl.Visibility
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 
@@ -26,3 +27,7 @@ fun Context.hideKeyboard(view: View) {
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 }
 
+
+fun Fragment.showMessage(message: String){
+    Toast.makeText(requireContext(),message,Toast.LENGTH_SHORT).show()
+}

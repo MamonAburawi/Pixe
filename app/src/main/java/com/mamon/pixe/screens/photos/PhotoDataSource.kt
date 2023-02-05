@@ -3,12 +3,13 @@ package com.mamon.pixe.screens.photos
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.info.pixels.PixelApi
-
 import com.info.pixels.data.Photo
+import com.mamon.pixe.utils.PAGE_SIZE
 import com.mamon.pixe.utils.STARTING_PAGE_INDEX
 
 
-class PhotoDataSource(
+class PhotoDataSource (
+    private val query: String?,
     private val apiService: PixelApi
 ) : PagingSource<Int, Photo>() {
 
@@ -17,10 +18,17 @@ class PhotoDataSource(
 
         return try {
             val currentPage = params.key ?: STARTING_PAGE_INDEX
-            val response = apiService.getPhotos(per_page = 10, page = currentPage)
+            val data: List<Photo> = when (query){ // user searching
+                null ->{ // just fetch the data
+                    val response = apiService.getPhotos(per_page = PAGE_SIZE, page = currentPage)
+                      response.body()?.photos ?: emptyList()
+                }
+                else -> { // user searching
+                    val response = apiService.search(query = query, per_page = PAGE_SIZE)
+                    response.body()?.photos ?: emptyList()
+                }
+            }
             val responseData = mutableListOf<Photo>()
-            val data = response.body()?.photos ?: emptyList()
-
             responseData.addAll(data)
 
             LoadResult.Page(
@@ -38,7 +46,4 @@ class PhotoDataSource(
     override fun getRefreshKey(state: PagingState<Int, Photo>): Int? {
         return null
     }
-
-
 }
-

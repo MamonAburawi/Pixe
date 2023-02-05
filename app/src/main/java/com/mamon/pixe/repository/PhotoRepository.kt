@@ -5,25 +5,35 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.info.pixels.PixelApi
 import com.info.pixels.data.Photo
-import com.mamon.pixe.utils.PAGE_SIZE
 import com.mamon.pixe.screens.photos.PhotoDataSource
+import com.mamon.pixe.utils.PAGE_SIZE
 import com.mamon.pixe.utils.MAX_SIZE
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 
 class PhotoRepository @Inject constructor(
-    val pixelApi: PixelApi) {
+    private val pixelApi: PixelApi) {
+
 
     fun getPhotos(): Flow<PagingData<Photo>> {
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize = PAGE_SIZE, maxSize = MAX_SIZE),
             pagingSourceFactory = {
-                PhotoDataSource(pixelApi)
+                PhotoDataSource(query = null,pixelApi)
             }
         ).flow
     }
 
+
+     fun search(query: String): Flow<PagingData<Photo>> {
+        return Pager(
+            config = PagingConfig(enablePlaceholders = false, pageSize = PAGE_SIZE, maxSize = MAX_SIZE),
+            pagingSourceFactory = {
+                PhotoDataSource(query,pixelApi)
+            }
+        ).flow
+    }
 
 
 }
