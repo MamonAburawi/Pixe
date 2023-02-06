@@ -90,8 +90,10 @@ dependencies {
     implementation Glide.glide
     annotationProcessor Glide.glideCompiler
 
-    // exoPlayer
+    // exo player
     implementation ExoPlayer.exoPlayer
 
 
+    // photo view
+    implementation PhotoView.photoView
 }

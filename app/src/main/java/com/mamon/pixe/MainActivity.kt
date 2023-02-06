@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         navFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.videoViewer ->{ hideElements() }
+                R.id.photoViewer ->{ hideElements() }
                 else -> { showElements() }
             }
         }

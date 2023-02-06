@@ -9,7 +9,15 @@
         android:id="@+id/photos"
         android:name="com.mamon.pixe.screens.photos.Photos"
         android:label="Photos"
-        tools:layout="@layout/photos"/>
+        tools:layout="@layout/photos">
+        <action
+            android:id="@+id/action_photos_to_photoViewer"
+            app:destination="@id/photoViewer"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
         android:id="@+id/videos"
         android:name="com.mamon.pixe.screens.videos.Videos"
@@ -17,7 +25,9 @@
         tools:layout="@layout/videos">
         <action
             android:id="@+id/action_videos_to_videoViewer"
-            app:destination="@id/videoViewer" />
+            app:destination="@id/videoViewer"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left" />
     </fragment>
     <fragment
         android:id="@+id/collections"
@@ -29,4 +39,9 @@
         android:name="com.mamon.pixe.screens.video_viewer.VideoViewer"
         android:label="VideoViewer"
         tools:layout="@layout/video_viewer"/>
+    <fragment
+        android:id="@+id/photoViewer"
+        android:name="com.mamon.pixe.screens.photo_viewer.PhotoViewer"
+        android:label="PhotoViewer"
+        tools:layout="@layout/photo_viewer"/>
 </navigation>

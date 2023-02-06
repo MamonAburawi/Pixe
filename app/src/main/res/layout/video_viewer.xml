@@ -10,7 +10,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".screens.video_viewer.VideoViewer">
 
 
@@ -18,7 +17,8 @@
         <com.google.android.exoplayer2.ui.StyledPlayerView
             android:id="@+id/viewer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
 
 
         <ImageView

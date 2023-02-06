@@ -18,6 +18,7 @@ object Versions{
     const val glide = "4.14.2"
     const val work = "2.7.1"
     const val exoPlayer = "2.18.2"
+    const val photoView = "2.3.0"
 }
 
 object Deps{
@@ -79,6 +80,10 @@ object WorkManager{
 
 object ExoPlayer {
     const val exoPlayer = "com.google.android.exoplayer:exoplayer:${Versions.exoPlayer}"
+}
+
+object PhotoView{
+    const val photoView = "com.github.chrisbanes:PhotoView:${Versions.photoView}"
 }
 
 

@@ -58,6 +58,11 @@ class Videos : Fragment() {
             appBar.searchField.setOnEditorActionListener { textView, actionId, _ ->
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     val query = textView.text.trim().toString()
+                    if (query.isNotEmpty()){
+                        viewModel.search(query)
+                    }else{
+                        viewModel.getData()
+                    }
                     hideKeyboard()
                     true
                 } else { false }
@@ -73,9 +78,9 @@ class Videos : Fragment() {
 
 
             // videos
-            videos.observe(viewLifecycleOwner){ photos ->
+            videos.observe(viewLifecycleOwner){ videos ->
                 lifecycleScope.launchWhenStarted {
-                    photos.collectLatest { data ->
+                    videos.collectLatest { data ->
                         if (data != null) {
                             videoAdapter.submitData(data)
                         }

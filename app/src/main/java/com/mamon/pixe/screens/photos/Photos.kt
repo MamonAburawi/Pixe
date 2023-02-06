@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.info.pixels.data.photo.Photo
 import com.mamon.pixe.R
 import com.mamon.pixe.databinding.PhotosBinding
+import com.mamon.pixe.utils.Constants
 import com.mamon.pixe.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -96,8 +99,9 @@ class Photos : Fragment() {
 
     private fun setAdapter() {
         photoAdapter.listener = object : PhotoAdapter.PhotoListener {
-            override fun onClick(data: Photo) {
-                Toast.makeText(requireContext(),data.url,Toast.LENGTH_SHORT).show()
+            override fun onClick(photo: Photo) {
+                val data = bundleOf(Constants.KEY_Photo_URL to photo.src.portrait )
+                findNavController().navigate(R.id.action_photos_to_photoViewer,data)
             }
         }
         binding.rvPhotos.adapter = photoAdapter

@@ -46,7 +46,7 @@ class PhotoAdapter: PagingDataAdapter<Photo, PhotoAdapter.NoteViewHolder>(NoteDi
 
 
     interface PhotoListener {
-        fun onClick(data: Photo)
+        fun onClick(photo: Photo)
     }
 
 

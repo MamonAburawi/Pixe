@@ -3,8 +3,9 @@ package com.info.pixels
 
 
 import com.info.pixels.data.photo.Curated
-import com.info.pixels.data.photo.Search
+import com.info.pixels.data.photo.PhotoSearch
 import com.info.pixels.data.video.PopularVideos
+import com.info.pixels.data.video.VideoSearch
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -30,13 +31,19 @@ interface PixelApi {
 
 
 
-
     @GET("search")
     @Headers("Authorization:$KEY")
     suspend fun searchPhoto(@Query("query") query: String,
                             @Query("per_page") per_page: Int?,
-    ): Response<Search>
+    ): Response<PhotoSearch>
 
+
+
+    @GET("videos/search")
+    @Headers("Authorization:$KEY")
+    suspend fun searchVideo(@Query("query") query: String,
+                            @Query("per_page") per_page: Int?,
+    ): Response<VideoSearch>
 
 
 

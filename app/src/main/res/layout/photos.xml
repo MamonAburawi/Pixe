@@ -24,7 +24,6 @@
                 android:layout_height="72dp"/>
 
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPhotos"
                 android:layout_width="match_parent"
@@ -32,7 +31,6 @@
                 tools:listitem="@layout/item_photo"
                 app:spanCount="2"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
-
 
 
         </LinearLayout>
