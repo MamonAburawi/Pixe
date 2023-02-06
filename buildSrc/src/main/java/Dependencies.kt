@@ -19,6 +19,7 @@ object Versions{
     const val work = "2.7.1"
     const val exoPlayer = "2.18.2"
     const val photoView = "2.3.0"
+    const val dexter = "6.2.3"
 }
 
 object Deps{
@@ -84,6 +85,10 @@ object ExoPlayer {
 
 object PhotoView{
     const val photoView = "com.github.chrisbanes:PhotoView:${Versions.photoView}"
+}
+
+object Dexter {
+    const val dexter = "com.karumi:dexter::${Versions.dexter}"
 }
 
 

@@ -40,20 +40,18 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     // hide navigation bottom and action bar
     private fun hideElements(){
         binding.homeBottomNavigation.hide()
         supportActionBar?.hide()
     }
 
+
     // show navigation bottom and action bar
     private fun showElements(){
         binding.homeBottomNavigation.show()
         supportActionBar?.show()
     }
-
-
 
 
 

@@ -18,12 +18,29 @@
         tools:context=".screens.photo_viewer.PhotoViewer">
 
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/btnBack"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_back"/>
+
+
+            <ImageView
+                android:id="@+id/btnDownload"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_folder"/>
+
+
+
+        </FrameLayout>
 
 
         <com.github.chrisbanes.photoview.PhotoView

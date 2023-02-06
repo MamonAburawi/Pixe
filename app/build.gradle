@@ -52,7 +52,7 @@ android {
 
 dependencies {
 
-    implementation implementation(project(':pixels',))
+    implementation implementation(project(':pixels'))
     implementation Deps.core
     implementation Deps.appCompact
     implementation Deps.material
@@ -60,6 +60,7 @@ dependencies {
     implementation Deps.legacySupport
     implementation Deps.lifeData
     implementation Deps.viewModel
+
 
     // testing
     testImplementation TestImplementation.junit
@@ -96,4 +97,11 @@ dependencies {
 
     // photo view
     implementation PhotoView.photoView
+
+//   // dexter
+//    implementation Dexter.dexter
+
+    implementation 'com.karumi:dexter:6.2.3'
+
+
 }
