@@ -94,7 +94,7 @@ class Photos : Fragment() {
 
 
 
-    private fun setAdapter(){
+    private fun setAdapter() {
         photoAdapter.listener = object : PhotoAdapter.PhotoListener {
             override fun onClick(data: Photo) {
                 Toast.makeText(requireContext(),data.url,Toast.LENGTH_SHORT).show()

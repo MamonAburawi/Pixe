@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import com.info.pixels.data.photo.Photo
-import com.mamon.pixe.utils.PAGE_SIZE
+import com.mamon.pixe.utils.PER_PAGE
 import com.mamon.pixe.utils.PREFETCH_DIST
 import com.mamon.pixe.repository.PhotoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,12 +19,6 @@ class PhotoViewModel @Inject constructor(
     private val repository: PhotoRepository
 ) : ViewModel() {
 
-
-    companion object {
-        const val TAG = "PhotoViewModel"
-        const val PAGE = PAGE_SIZE
-        const val MAX_SIZE = PAGE_SIZE + 2 * PREFETCH_DIST
-    }
 
 
     private val _photos = MutableLiveData<Flow<PagingData<Photo>?>>()

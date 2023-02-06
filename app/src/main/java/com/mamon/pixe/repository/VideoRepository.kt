@@ -7,7 +7,7 @@ import com.info.pixels.PixelApi
 import com.info.pixels.data.video.Video
 import com.mamon.pixe.screens.videos.VideoDataSource
 import com.mamon.pixe.utils.MAX_SIZE
-import com.mamon.pixe.utils.PAGE_SIZE
+import com.mamon.pixe.utils.PER_PAGE
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class VideoRepository @Inject constructor(
 
     fun getVideos(): Flow<PagingData<Video>> {
         return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = PAGE_SIZE, maxSize = MAX_SIZE),
+            config = PagingConfig(enablePlaceholders = false, pageSize = PER_PAGE ),
             pagingSourceFactory = {
                 VideoDataSource(query = null, apiService = pixelApi)
             }
@@ -27,7 +27,7 @@ class VideoRepository @Inject constructor(
 
     fun search(query: String): Flow<PagingData<Video>> {
         return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = PAGE_SIZE, maxSize = MAX_SIZE),
+            config = PagingConfig(enablePlaceholders = false, pageSize = PER_PAGE),
             pagingSourceFactory = {
                 VideoDataSource(query = query, apiService = pixelApi)
             }

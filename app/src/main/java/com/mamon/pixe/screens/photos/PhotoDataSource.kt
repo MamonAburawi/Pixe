@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.info.pixels.PixelApi
 import com.info.pixels.data.photo.Photo
-import com.mamon.pixe.utils.PAGE_SIZE
+import com.mamon.pixe.utils.PER_PAGE
 import com.mamon.pixe.utils.STARTING_PAGE_INDEX
 
 
@@ -13,6 +13,7 @@ class PhotoDataSource (
     private val apiService: PixelApi
 ) : PagingSource<Int, Photo>() {
 
+
     override suspend fun load(params: LoadParams<Int>):
             LoadResult<Int, Photo> {
 
@@ -20,11 +21,11 @@ class PhotoDataSource (
             val currentPage = params.key ?: STARTING_PAGE_INDEX
             val data: List<Photo> = when (query){ // user searching
                 null ->{ // just fetch the data
-                    val response = apiService.getPhotos(per_page = PAGE_SIZE, page = currentPage)
+                    val response = apiService.getPhotos(per_page = PER_PAGE, page = currentPage)
                       response.body()?.photos ?: emptyList()
                 }
                 else -> { // user searching
-                    val response = apiService.searchPhoto(query = query, per_page = PAGE_SIZE)
+                    val response = apiService.searchPhoto(query = query, per_page = PER_PAGE)
                     response.body()?.photos ?: emptyList()
                 }
             }
@@ -32,9 +33,9 @@ class PhotoDataSource (
             responseData.addAll(data)
 
             LoadResult.Page(
-                data = responseData,
-                prevKey = if (currentPage == STARTING_PAGE_INDEX) null else -1,
-                nextKey = currentPage.plus(1)
+                data = data ,
+                prevKey = if (currentPage == STARTING_PAGE_INDEX) null else currentPage - 1,
+                nextKey = if (data.isEmpty()) null else currentPage + 1
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
@@ -42,8 +43,15 @@ class PhotoDataSource (
 
     }
 
-    //todo: when scroll up the app crash the issue from refresh key.
+
     override fun getRefreshKey(state: PagingState<Int, Photo>): Int? {
-        return null
+        return state.anchorPosition?.let { anchorPosition ->
+            val anchorPage = state.closestPageToPosition(anchorPosition)
+            anchorPage?.prevKey
+        }
     }
+
 }
+
+
+
