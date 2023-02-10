@@ -6,6 +6,7 @@ import com.info.pixels.PixelApi
 import com.info.pixels.data.photo.Photo
 import com.mamon.pixe.utils.PER_PAGE
 import com.mamon.pixe.utils.STARTING_PAGE_INDEX
+import kotlinx.coroutines.delay
 
 
 class PhotoDataSource (
@@ -25,7 +26,7 @@ class PhotoDataSource (
                       response.body()?.photos ?: emptyList()
                 }
                 else -> { // user searching
-                    val response = apiService.searchPhoto(query = query, per_page = PER_PAGE)
+                    val response = apiService.searchPhoto(query = query, per_page = params.loadSize)
                     response.body()?.photos ?: emptyList()
                 }
             }
@@ -34,6 +35,7 @@ class PhotoDataSource (
 
             LoadResult.Page(
                 data = data ,
+//                prevKey = null, // only paging forward
                 prevKey = if (currentPage == STARTING_PAGE_INDEX) null else currentPage - 1,
                 nextKey = if (data.isEmpty()) null else currentPage + 1
             )

@@ -20,6 +20,8 @@ object Versions{
     const val exoPlayer = "2.18.2"
     const val photoView = "2.3.0"
     const val dexter = "6.2.3"
+    const val progressFab = "1.6"
+    const val lottie = "3.4.0"
 }
 
 object Deps{
@@ -88,7 +90,17 @@ object PhotoView{
 }
 
 object Dexter {
-    const val dexter = "com.karumi:dexter::${Versions.dexter}"
+    const val dexter  = "com.karumi:dexter:${Versions.dexter}"
 }
+
+object ProgressFab{
+    const val  progressFab = "com.dmitrymalkovich.android:progress-fab:${Versions.progressFab}"
+}
+
+object Lottie {
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+}
+
+
 
 

@@ -30,10 +30,19 @@
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/item_video"
                 app:spanCount="2"
+                android:visibility="visible"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 
         </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/loader"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content"/>
 
 
     </FrameLayout>

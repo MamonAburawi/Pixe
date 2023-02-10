@@ -27,13 +27,13 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setUpNav() {
-        val navFragment =
-            supportFragmentManager.findFragmentById(R.id.home_nav_host_fragment) as NavHostFragment
+        val navFragment = supportFragmentManager.findFragmentById(R.id.home_nav_host_fragment) as NavHostFragment
         NavigationUI.setupWithNavController(binding.homeBottomNavigation, navFragment.navController)
         navFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.videoViewer ->{ hideElements() }
                 R.id.photoViewer ->{ hideElements() }
+                R.id.splash ->{ hideElements() }
                 else -> { showElements() }
             }
         }

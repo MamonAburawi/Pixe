@@ -1,6 +1,7 @@
 package com.mamon.pixe.screens.photos
 
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,8 +22,8 @@ class PhotoViewModel @Inject constructor(
 
 
 
-    private val _photos = MutableLiveData<Flow<PagingData<Photo>?>>()
-    val photos = _photos
+    private val _photos = MutableLiveData<Flow<PagingData<Photo>>?>()
+    val photos: LiveData<Flow<PagingData<Photo>>?> = _photos
 
 
     init {

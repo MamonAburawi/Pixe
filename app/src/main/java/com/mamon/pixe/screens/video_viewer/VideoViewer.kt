@@ -1,5 +1,7 @@
 package com.mamon.pixe.screens.video_viewer
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.mamon.pixe.databinding.VideoViewerBinding
 import com.mamon.pixe.utils.Constants
+import java.io.FileOutputStream
 
 
 class VideoViewer : Fragment() {
@@ -55,3 +58,5 @@ class VideoViewer : Fragment() {
    private fun getVideoUrl() = try {arguments?.getString(Constants.KEY_VIDEO_URL) ?: ""} catch (ex:Exception){""}
 
 }
+
+

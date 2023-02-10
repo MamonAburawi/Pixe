@@ -6,23 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.exoplayer2.ExoPlayer
-import com.google.android.exoplayer2.MediaItem
-import com.info.pixels.data.photo.Photo
 import com.info.pixels.data.video.Video
 import com.mamon.pixe.R
 import com.mamon.pixe.databinding.VideosBinding
-import com.mamon.pixe.screens.photos.PhotoAdapter
-import com.mamon.pixe.screens.photos.PhotoViewModel
 import com.mamon.pixe.utils.Constants
+import com.mamon.pixe.utils.hide
 import com.mamon.pixe.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -40,7 +37,6 @@ class Videos : Fragment() {
         setViews()
 
         setObserves()
-
 
 
         return binding.root
@@ -78,12 +74,16 @@ class Videos : Fragment() {
 
 
             // videos
-            videos.observe(viewLifecycleOwner){ videos ->
+            videos.observe(viewLifecycleOwner) { videos ->
                 lifecycleScope.launchWhenStarted {
                     videos.collectLatest { data ->
                         if (data != null) {
+                            MainScope().launch {
+                                binding.loader.hide()
+                            }
                             videoAdapter.submitData(data)
                         }
+
                     }
                 }
             }

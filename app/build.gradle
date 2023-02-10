@@ -98,10 +98,15 @@ dependencies {
     // photo view
     implementation PhotoView.photoView
 
-//   // dexter
-//    implementation Dexter.dexter
+    // dexter
+    implementation Dexter.dexter
+    
+//    // progress fab
+//    implementation ProgressFab.progressFab
 
-    implementation 'com.karumi:dexter:6.2.3'
+    // lottie
+    implementation Lottie.lottie
+
 
 
 }

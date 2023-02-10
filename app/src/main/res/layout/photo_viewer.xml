@@ -11,16 +11,32 @@
 
     </data>
 
-    <LinearLayout
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".screens.photo_viewer.PhotoViewer">
+        android:layout_height="match_parent">
 
 
-        <FrameLayout
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/downloadAnim"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:lottie_rawRes="@raw/camera"
+            app:lottie_loop="false"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="false"
+            android:visibility="gone"
+            android:progress="0" />
+
+
+
+        <LinearLayout
+            android:id="@+id/allView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".screens.photo_viewer.PhotoViewer">
+
 
             <ImageView
                 android:id="@+id/btnBack"
@@ -30,27 +46,60 @@
                 android:src="@drawable/ic_back"/>
 
 
-            <ImageView
-                android:id="@+id/btnDownload"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_margin="10dp"
-                android:layout_gravity="end"
-                android:src="@drawable/ic_folder"/>
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/photo_view"
+                setImage="@{photoUri}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
 
 
-        </FrameLayout>
+        </LinearLayout>
 
 
-        <com.github.chrisbanes.photoview.PhotoView
-            android:id="@+id/photo_view"
-            setImage="@{photoUri}"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:orientation="horizontal">
 
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnScreenCapture"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="50dp"
+                android:text="screen capture"/>
+
+
+            <androidx.legacy.widget.Space
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"/>
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/btnDownload"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="50dp"
+                app:lottie_rawRes="@raw/download"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="false"
+                android:progress="0" />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </FrameLayout>
+
 
 </layout>
