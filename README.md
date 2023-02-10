@@ -27,32 +27,10 @@ Pixe App is a simple app that uses the Pixel API to fetch data from the server a
 ## Screenshots
 
 
-<img src="https://ibb.co/XWbX6g7" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/61309294/218220051-514843b3-eb20-4e51-b42a-ce027bea76d9.jpg" width="200" height="400">
+<img src="https://user-images.githubusercontent.com/61309294/218220047-03e59de5-7a9f-4c01-99ca-229e8c342c9b.jpg" width="200" height="400">
 
+<img src="https://user-images.githubusercontent.com/61309294/218220107-6febee2f-9c4b-4488-8d3d-48f939117a4c.jpg" width="200" height="400">
 
-
-
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218218105-164f794d-cc48-49db-939e-042d0748d808.jpg" width="200" height="400" />
-
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218217001-836f41e7-289d-4baf-baa4-d4dbd8c2ab97.jpg" width="200" height="400" />
-
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218216927-b5d58c82-deb0-4d1b-8de4-c1440ea9d635.jpg" width="200" height="400" />
-
-<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218216869-92eae491-d35e-4b37-9025-68945ead87ea.jpg" width="200" height="400" />
-
-
-
-![App Screenshot](https://ibb.co/XWbX6g7)
-
-![App Screenshot](https://ibb.co/gDXfq8f)
-
-![App Screenshot](https://ibb.co/gF1rzP5)
-
-![App Screenshot](https://ibb.co/BzbydH1)
-
- 
-
-
-
-
+<img src="https://user-images.githubusercontent.com/61309294/218220084-e0429d31-6428-46b2-aaf8-75919e04f90b.jpg" width="200" height="400">
 
