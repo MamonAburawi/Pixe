@@ -26,6 +26,15 @@ Pixe App is a simple app that uses the Pixel API to fetch data from the server a
     
 ## Screenshots
 
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218218105-164f794d-cc48-49db-939e-042d0748d808.jpg" width="200" height="400" />
+
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218217001-836f41e7-289d-4baf-baa4-d4dbd8c2ab97.jpg" width="200" height="400" />
+
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218216927-b5d58c82-deb0-4d1b-8de4-c1440ea9d635.jpg" width="200" height="400" />
+
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="https://user-images.githubusercontent.com/61309294/218216869-92eae491-d35e-4b37-9025-68945ead87ea.jpg" width="200" height="400" />
+
+
 
 ![App Screenshot](https://ibb.co/XWbX6g7)
 
